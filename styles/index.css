@@ -1,0 +1,238 @@
+@import 'reset.css';
+
+:root {
+    --default-foreground: #fff;
+    --highlight: #ff4656;
+}
+
+* {
+    color: var(--default-foreground);
+}
+
+body {
+    background: linear-gradient(#1E1E20fa, #1E1E20fa), url('https://www.figma.com/file/Yb9IBH56g7T1hdIyZ3BMNO/image/d8c4822a03b1a76c34563ab69c80a4ea7c06a79c?fuid=1138458585536270203');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+header {
+    padding: 2rem;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shadows img {
+    position: absolute;
+}
+
+.shadows :nth-child(1) {
+    display: block;
+    top: 0;
+    right: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 3.5rem;
+    flex-grow: 1;
+    padding-bottom: 2rem;
+}
+
+.picture-frame, .shadow-border, .picture-container, .border, .character {
+    width: 132px;
+    height: 132px;
+}
+
+.picture-frame {
+    position: relative;
+}
+
+.picture-container, .character {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.picture-container {
+    overflow: hidden;
+    clip-path: path("M0.390777 132.473V11.0952L10.3306 0.390777H132.473V132.473H0.390777Z");
+    transform: translate(.4rem, .4rem);
+}
+
+.character {
+    object-fit: cover;
+    z-index: -1;
+    background: var(--highlight);
+}
+
+.picture-frame:nth-of-type(1) .character {
+    width: 550px;
+    height: 550px;
+    object-position: 210px 355px;
+}
+
+.picture-frame:nth-of-type(2) .character {
+    width: 550px;
+    height: 550px;
+    object-position: -216px 370px;
+    transform: scaleX(-1);
+}
+
+.picture-frame:nth-of-type(3) .character {
+    width: 550px;
+    height: 550px;
+    object-position: 250px 390px;
+}
+
+h3 {
+    font-weight: 700;
+    text-align: center;
+    color: var(--highlight);
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+.social {
+    width: 132px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social img {
+    width: 24px;
+}
+
+@supports (-webkit-text-stroke: 1px #fff) {
+    h1 {
+        color: transparent;
+        -webkit-text-stroke: 1px #fff;
+    }
+}
+
+@media (min-width: 800px) {
+
+    body {
+        padding: 0 4rem;
+    }
+
+    header {
+        padding: 0;
+        padding-top: 2rem;
+    }
+
+    main {
+        width: max-content;
+        margin-top: 4rem;
+        align-self: center;
+        column-gap: 1.8rem;
+        display: grid;
+        grid-template-rows: repeat(2, max-content);
+        grid-template-columns: repeat(3, auto);
+        align-content: center;
+        row-gap: 0;
+    }
+
+    h2, .shadows img {
+        display: block;
+    }
+
+    h1 {
+        align-self: start;
+        grid-area: 1/1/2/4;
+        font-size: 3.5rem;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-weight: 700;
+    }
+
+    .shadows img {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    body {
+        padding: 0 6rem;
+        padding-bottom: 1rem;
+    }
+
+    .shadows img {
+        display: block;
+    }
+
+    .shadows :nth-child(1) {
+        display: none;
+    }
+
+    .shadows :nth-child(2) {
+        width: 433px;
+        opacity: .3;
+        left: 0;
+        top: 0;
+    }
+
+    .shadows :nth-child(3) {
+        width: 450px;
+        opacity: .2;
+        left: 200px;
+        bottom: 0;
+    }
+
+    .shadows :nth-child(4) {
+        width: 390px;
+        opacity: .8;
+        top: 0;
+        right: 0;
+    }
+
+    main {
+        align-self: start;
+        row-gap: 1.5rem;
+    }
+    h1 {
+        display: block;
+    }
+
+    footer {
+        justify-content: flex-start;
+    }
+
+    .front-cover {
+        width: 500px;
+        height: 630px;
+        overflow: hidden;
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    .front-cover img {
+        width: 700px;
+        height: 900px;
+        object-fit: cover;
+        object-position: -90px -80px;
+    }
+
+    footer {
+        padding: 0;
+    }
+}
